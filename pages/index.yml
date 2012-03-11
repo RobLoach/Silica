@@ -1,0 +1,3 @@
+title: Welcome
+content: This is the content. Check out my <a href="blog/mypost">blog post.</a>.
+template: default.twig
