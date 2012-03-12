@@ -1,5 +1,5 @@
-twig.path: "templates"
-silica.path: "pages"
+twig.path: "../templates"
+silica.path: "../pages"
 debug: 1
 page_title: Silica
 navigation:
