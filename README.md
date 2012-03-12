@@ -16,4 +16,4 @@ Installation
 Usage
 -----
 
-Visit /web for a sample site using Silica.
+Visit /web and /app for a sample site using Silica.

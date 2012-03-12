@@ -1,7 +1,0 @@
-twig.path: "../templates"
-silica.path: "../pages"
-debug: 1
-page_title: Silica
-navigation:
-  GitHub: https://github.com/RobLoach/Silica
-  Rob Loach: http://robloach.net

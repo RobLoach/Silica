@@ -1,0 +1,7 @@
+silica.templates: "templates"
+silica.pages: "pages"
+debug: 1
+page_title: Silica
+navigation:
+  GitHub: https://github.com/RobLoach/Silica
+  Rob Loach: http://robloach.nett

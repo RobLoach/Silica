@@ -15,6 +15,11 @@ class Application extends SilexApplication {
             $this[$option] = $value;
         }
 
+        // Make sure to retrieve Silica app path relative from the config.
+        if (!isset($this['silica.path'])) {
+            $this['silica.path'] = dirname(realpath($configfile));
+        }
+
         // Prepare Silex.
         parent::__construct();
 
@@ -24,6 +29,10 @@ class Application extends SilexApplication {
     }
 
     private function registerProviders() {
+        // Set up Twig.
+        if (!isset($this['twig.path'])) {
+            $this['twig.path'] = $this['silica.path'] . '/' . $this['silica.templates'];
+        }
         $this->register(new TwigServiceProvider(), (array)$this);
     }
 
@@ -33,7 +42,7 @@ class Application extends SilexApplication {
         $finder = new Finder();
         $iterator = $finder->files()
             ->name('*.yml')
-            ->in(realpath($this['silica.path']));
+            ->in($this['silica.path'] . '/' . $this['silica.pages']);
 
         // Iterate through each page.
         foreach ($iterator as $file) {
