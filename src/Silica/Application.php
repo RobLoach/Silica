@@ -10,8 +10,8 @@ use Symfony\Component\Finder\Finder;
 class Application extends SilexApplication {
     public function __construct($configfile = 'config.yml') {
         // Load all the options and inject them into the Application.
-        $options = Yaml::parse($configfile);
-        foreach ($options as $option => $value) {
+        $this['config'] = Yaml::parse($configfile);
+        foreach ($this['config'] as $option => $value) {
             $this[$option] = $value;
         }
 
@@ -48,10 +48,11 @@ class Application extends SilexApplication {
                 $options = Yaml::parse($file->getRealPath());
 
                 // Inject any required variables.
-                $template = isset($options['template']) ? $options['template'] : 'default.twig';
+                $template = isset($options['template']) ? $options['template'] : 'default.html';
+                $variables = array_merge($app['config'], $options);
 
                 // Have Twig render the page.
-                return $app['twig']->render($template, $options);
+                return $app['twig']->render($template, $variables);
             });
         }
     }

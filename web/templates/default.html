@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+        <title>{{ page_title }}</title>
+        {% endblock %}
+    </head>
+    <body>
+        <header id="header">
+            <h1>{{ title }}</h1>
+        </header>
+        {% if navigation|length > 0 %}
+        <nav>
+            <ul>
+                {% for title, url in navigation %}
+                    <li><a href="{{ url }}">{{ title }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+        {% endif %}
+        <section id="content">
+            {% block content %}
+                {{ content|raw }}
+            {% endblock %}
+        </section>
+        <footer id="footer">
+            {% block footer %}
+                &copy; Copyright 2012 by <a href="http://robloach.net/">Rob Loach</a>.
+            {% endblock %}
+        </footer>
+    </body>
+</html>

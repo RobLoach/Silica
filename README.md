@@ -16,4 +16,4 @@ Installation
 Usage
 -----
 
-Visit the /web, /pages and /templates folders are examples of how to use Silica.
+Visit /web for a sample site using Silica.
